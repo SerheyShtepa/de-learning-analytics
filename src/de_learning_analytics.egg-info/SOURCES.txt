@@ -1,0 +1,8 @@
+pyproject.toml
+src/de_learning_analytics/__init__.py
+src/de_learning_analytics/ingest.py
+src/de_learning_analytics.egg-info/PKG-INFO
+src/de_learning_analytics.egg-info/SOURCES.txt
+src/de_learning_analytics.egg-info/dependency_links.txt
+src/de_learning_analytics.egg-info/top_level.txt
+tests/test_preview_csv.py
