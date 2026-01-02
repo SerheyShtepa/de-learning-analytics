@@ -43,7 +43,7 @@ def main():
         inserted = insert_sessions(db_path, sessions)
         print(f"Inserted {inserted} rows into {db_path}")
     else:
-        print(f"No sessions found", file=sys.stderr)
+        print("No sessions found", file=sys.stderr)
 
 
 if __name__ == "__main__":
