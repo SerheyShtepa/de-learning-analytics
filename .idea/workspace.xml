@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="face6e6e-9eb7-4198-b810-5abc1fbf0976" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/de-learning-analytics.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/sessions_raw.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/load_sqlite.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/preview_csv.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/de_learning_analytics/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/de_learning_analytics/db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/de_learning_analytics/ingest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_ingest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_preview_csv.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_loader_idempotent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +39,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/serhey/PycharmProjects/de-learning-analytics/src&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
