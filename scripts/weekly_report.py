@@ -10,11 +10,15 @@ def week_bounds(d: date) -> tuple[date, date]:
     sunday = monday + timedelta(days=6)
     return monday, sunday
 
-
+# TODO: refractor main() into smaller function (DB access, aggregation, ...)
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--db", required=True)
+    parser.add_argument("--mode", "-m", default="week", choices=["week", "last7"])
     args = parser.parse_args()
+    # db = args.db
+    # mode = args.mode
+
 
     with sql.connect(args.db) as conn:
         cursor = conn.cursor()
@@ -26,15 +30,20 @@ def main() -> int:
         max_date_str = row[0]
 
         max_date = date.fromisoformat(max_date_str)
-        week_start, week_end = week_bounds(max_date)
+        end_date = max_date
+        if args.mode == "last7":
+            start_date = end_date - timedelta(days=6)
+        else:
+            start_date, end_date = week_bounds(end_date)
+
 
         query_totals = """
         SELECT SUM(duration_min), COUNT(*)
         FROM sessions
         WHERE date >= ? AND date <= ?"""
 
-        start_s = week_start.isoformat()
-        end_s = week_end.isoformat()
+        start_s = start_date.isoformat()
+        end_s = end_date.isoformat()
         cur = cursor.execute(query_totals, (start_s, end_s))
         total_minutes, total_sessions = cur.fetchone()
 
