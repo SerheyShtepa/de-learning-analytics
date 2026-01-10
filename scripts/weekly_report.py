@@ -3,7 +3,6 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 from de_learning_analytics.report import build_report
-import sqlite3 as sql
 
 
 def main() -> int:
@@ -12,7 +11,6 @@ def main() -> int:
     parser.add_argument("--mode", "-m", default="week", choices=["week", "last7"])
     parser.add_argument("--output", type=str, default=None, help="Write report to file instead of stdout")
     args = parser.parse_args()
-
 
     report_text = build_report(args.db, args.mode)
     if args.output is None:
