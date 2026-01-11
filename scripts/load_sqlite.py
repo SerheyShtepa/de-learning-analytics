@@ -9,8 +9,8 @@ from de_learning_analytics.ingest import normalize_row, REQUIRED_COLUMNS
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--input",
-                        default="data/sessions_raw_example.csv",
-                        help="Way to CSV (default: data/sessions_raw_example.csv)")
+                        default="data/sessions_raw.csv",
+                        help="Way to CSV (default: data/sessions_raw.csv)")
     parser.add_argument("--db",
                         default="data/sessions.db",
                         help="Way to DB (default: data/sessions.db)")
