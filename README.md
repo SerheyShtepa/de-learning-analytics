@@ -1,10 +1,11 @@
 markdown
 ## How to run
 
-### Input data:
-data/sessions_raw.csv is expected to exist locally,
-the file is gitignored,
-for quick start - copy or rename sessions_raw_example.csv
+### Input data
+
+The file `data/sessions_raw.csv` is expected to exist locally and is ignored by git.
+It represents the raw log of learning sessions.
+For a quick start, you can copy or rename `data/sessions_raw_example.csv`.
 
 ### 1. Load CSV into SQLite
 

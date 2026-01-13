@@ -1,9 +1,7 @@
 import argparse
-import csv
 import sys
 
-from de_learning_analytics.db import init_db, insert_sessions
-from de_learning_analytics.ingest import normalize_row, REQUIRED_COLUMNS
+from de_learning_analytics.load import load_csv_to_sqlite
 
 
 def parse_args() -> argparse.Namespace:
@@ -21,29 +19,15 @@ def main():
     args = parse_args()
     input_path: str = args.input
     db_path: str = args.db
-
-    sessions = []
-    with open(input_path, newline='', encoding="utf-8") as csvfile:
-        reader = csv.DictReader(csvfile)
-
-        fieldnames = reader.fieldnames or []
-        missing = [c for c in REQUIRED_COLUMNS if c not in fieldnames]
-        if missing:
-            print(f"Missing required columns: {missing}", file=sys.stderr)
-            sys.exit(2)
-        for line_no, row in enumerate(reader, start=2):
-            try:
-                sessions.append(normalize_row(row))
-            except ValueError as e:
-                print(f"Row {line_no} invalid: {e}", file=sys.stderr)
-                sys.exit(2)
-
-    if sessions:
-        init_db(db_path)
-        inserted = insert_sessions(db_path, sessions)
-        print(f"Inserted {inserted} rows into {db_path}")
+    try:
+        inserted = load_csv_to_sqlite(input_path, db_path)
+    except ValueError as e:
+        print(str(e), file=sys.stderr)
+        raise SystemExit(2)
+    if inserted:
+        print(f"{inserted} rows inserted")
     else:
-        print("No sessions found", file=sys.stderr)
+        print("0 new rows inserted (already loaded)")
 
 
 if __name__ == "__main__":
